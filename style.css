@@ -1,166 +1,155 @@
-@font-face{
-  font-family: Reckless;
-  src: url(./fonts/RecklessCondensedS-TRIAL-Book.woff)
+@font-face {
+  font-family: 'Reckless';
+  src: url('./fonts/RecklessCondensedS-TRIAL-Book.woff');
 }
 
-@font-face{
-  font-family: Figtree;
-  src: url(./fonts/figtree_n4.3c0838aba1701047e60be6a99a1b0a40ce9b8419.woff2);
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/figtree_n4.3c0838aba1701047e60be6a99a1b0a40ce9b8419.woff2');
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,body{
+html, body {
   width: 100%;
   height: 100%;
 }
 
-main{
+main {
   width: 100%;
   min-height: 100vh;
   background-color: #fbf93b;
   position: relative;
 }
 
-
-
-nav{
+nav {
   width: 100%;
   background-color: #fffefb;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: Reckless;
+  font-family: 'Reckless', serif;
   padding: 1rem;
   border-radius: 1vw;
-  font-size: 0.8rem
+  font-size: 0.8rem;
   position: sticky;
   top: 0;
   left: 0;
-
 }
 
-.nav-part-1{
+.nav-part-1 {
   width: 33%;
-  display: flex;
+  display: none; /* Hidden on mobile */
   gap: 1rem;
- display: none;
 }
 
-
-
-
-nav .nav-part-2{
-  width: 5vw;
+nav .nav-part-2 {
+  width: 15vw; /* Increased for mobile visibility */
+  min-width: 50px;
   height: auto;
   display: flex;
   text-align: center;
 }
 
-.nav-part-2 img{
+.nav-part-2 img {
   width: 100%;
   object-fit: cover;
 }
 
 .nav-part-3 {
-  display: flex;
+  display: none; /* Hidden on mobile */
   width: 33%;
   gap: 2rem;
   align-items: center;
-  justify-content: end; 
-  display: none;
-}
-.nav-part-3 svg{
-  width: 1.5vw;
+  justify-content: flex-end; 
 }
 
-#section-1{
+.nav-part-3 svg {
+  width: 1.5vw;
+  min-width: 24px; /* Ensures SVGs don't disappear on smaller screens */
+}
+
+#section-1 {
   width: 100%;
   height: 80vh;
-  background-image: url(https://www.twoleavestea.com/cdn/shop/files/AlpineBerry_mobile.webp?v=1774284087&width=1350.0);
+  background-image: url('https://www.twoleavestea.com/cdn/shop/files/AlpineBerry_mobile.webp?v=1774284087&width=1350.0');
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   padding: 3rem;
   gap: 1rem;
- 
 }
 
-#section-1 h1{
+#section-1 h1 {
   font-size: clamp(3.5rem, 4vw, 4rem);
-   font-family: Reckless;
-  max-width: 18vw;
+  font-family: 'Reckless', serif;
+  max-width: 90vw; /* Fixed: 18vw would crush the text on mobile screens */
   color: #fffefb;
   font-weight: 500;
-  align-items: center;
+  text-align: center;
 }
-#section-1 p{
-  font-family: Figtree;
+
+#section-1 p {
+  font-family: 'Figtree', sans-serif;
   font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 400;
   max-width: 90%;
   text-align: center;
   color: #fffefb;
 }
-#section-1 button{
+
+#section-1 button {
   padding: 1rem 3rem;
   border: none;
-  background-color: #2A2857;
+  background-color: #2a2857;
   color: white;
-  font-family: figtree;
-  border-radius: 2rem; 2 : 07
+  font-family: 'Figtree', sans-serif; /* Capitalized to match @font-face */
+  border-radius: 2rem;
+  cursor: pointer;
 }
-#section
 
+/* Removed empty @media (min-width:768px) */
 
-@media (min-width:768px){
-
-}
-@media(min-width:1024px){
-  nav{
-    width: 100%;
-    background-color: #ffffefb;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: Reckless;
+@media (min-width: 1024px) {
+  nav {
     padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-    position: sticky;
-  }
-  nav .nav-part-1{
-    display: flex;
-    gap: 1rem;
-    width: 10%;
-  }
-  nav i{
-  display: none;
-  }
-  .nav-part-3{
-    font-size: 1.2rem;
-    font-weight: 300;
-  }
-  nav .nav-part-2{
-    width: 10%;
-    height: auto;
-    display: flex;
+    border-radius: 0; /* Optional: Usually navs lose borders on full desktop */
   }
 
-  .nav-part-3{
+  .nav-part-1 {
     display: flex;
-    width: 50%;
+    width: 30%;
   }
-  .nav-part-3 h3{
+
+  nav i {
+    display: none;
+  }
+  
+  nav .nav-part-2 {
+    width: 5vw; /* Scaled back down for desktop */
+    justify-content: center;
+  }
+
+  .nav-part-3 {
+    display: flex;
+    width: 30%;
+  }
+
+  .nav-part-3 h3 {
     font-weight: 300;
     font-size: 1.2rem;
     display: block;
     white-space: nowrap;
   }
 
+  #section-1 h1 {
+    max-width: 40vw; /* Adjust max-width for desktop so it breaks nicely */
+  }
 }
