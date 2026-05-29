@@ -1,17 +1,19 @@
-// // var physics = Number(prompt('enter marks'))
-// // var maths = Number(prompt('enter marks'))
-// // var chemistry = Number(prompt('enter marks'))
+// just for practice only 
 
-// // var avg = (maths + physics + chemistry) /3 
-// // console.log('avg', avg);
+// var physics = Number(prompt('enter marks'))
+// var maths = Number(prompt('enter marks'))
+// var chemistry = Number(prompt('enter marks'))
 
-// // if (avg >= 85){
-// //   console.log('A');
-// // }else if (avg>= 75){
-// //   console.log('B');
-// // }
-// //   else {
-// //   console.log('C');}
+// var avg = (maths + physics + chemistry) /3 
+// console.log('avg', avg);
+
+// if (avg >= 85){
+//   console.log('A');
+// }else if (avg>= 75){
+//   console.log('B');
+// }
+//   else {
+//   console.log('C');}
 
 // var gendeer = prompt('enter gender (M/F)')
 // var age = Number(prompt('enter age'))

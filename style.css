@@ -8,6 +8,16 @@
   src: url('./fonts/figtree_n4.3c0838aba1701047e60be6a99a1b0a40ce9b8419.woff2');
 }
 
+@font-face {
+  font-family: midnight;
+  src: url('./fonts/midnight-sans-rd-12-medium-trial (1).otf');
+}
+
+@font-face {
+  font-family: Robot;
+  src: url('./fonts/figtree_n4.3c0838aba1701047e60be6a99a1b0a40ce9b8419.woff2');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +32,7 @@ html, body {
 main {
   width: 100%;
   min-height: 100vh;
-  background-color: #fbf93b;
+  background-color: #c0dbff;
   position: relative;
 }
 
@@ -32,23 +42,24 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Reckless', serif;
+  font-family: 'Reckless', sans-serif;
   padding: 1rem;
   border-radius: 1vw;
   font-size: 0.8rem;
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 
 .nav-part-1 {
   width: 33%;
-  display: none; /* Hidden on mobile */
+  display: none; 
   gap: 1rem;
 }
 
 nav .nav-part-2 {
-  width: 15vw; /* Increased for mobile visibility */
+  width: 15vw; 
   min-width: 50px;
   height: auto;
   display: flex;
@@ -61,7 +72,7 @@ nav .nav-part-2 {
 }
 
 .nav-part-3 {
-  display: none; /* Hidden on mobile */
+  display: none; 
   width: 33%;
   gap: 2rem;
   align-items: center;
@@ -70,7 +81,7 @@ nav .nav-part-2 {
 
 .nav-part-3 svg {
   width: 1.5vw;
-  min-width: 24px; /* Ensures SVGs don't disappear on smaller screens */
+  min-width: 24px; 
 }
 
 #section-1 {
@@ -81,27 +92,24 @@ nav .nav-part-2 {
   background-position: center;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   flex-direction: column;
   padding: 3rem;
   gap: 1rem;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 
 #section-1 h1 {
-  font-size: clamp(3.5rem, 4vw, 4rem);
-  font-family: 'Reckless', serif;
-  max-width: 90vw; /* Fixed: 18vw would crush the text on mobile screens */
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-family: 'Reckless', sans-serif;
   color: #fffefb;
   font-weight: 500;
-  text-align: center;
 }
 
 #section-1 p {
   font-family: 'Figtree', sans-serif;
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 400;
-  max-width: 90%;
-  text-align: center;
   color: #fffefb;
 }
 
@@ -110,22 +118,818 @@ nav .nav-part-2 {
   border: none;
   background-color: #2a2857;
   color: white;
-  font-family: 'Figtree', sans-serif; /* Capitalized to match @font-face */
+  font-family: 'Figtree';
   border-radius: 2rem;
+  cursor: pointer;
+  align-self: center;
+}
+
+#section-2 {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fbf9eb;
+  padding: 4rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid black; 
+}
+
+#section-2 .section-2-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Reckless', sans-serif;
+}
+
+.section-2-text h1 {
+  width: 90%;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  text-align: center;
+}
+
+.best-seller-btn {
+  padding: 0.3rem 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  background-color: #DAAEEA;
+  text-transform: uppercase;
+  font-family: 'midnight', sans-serif;
+  border-radius: 1.2rem;
+  margin-top: 3rem;
+  border: 1px solid #000;
+  transform: rotate(-4deg);
+  letter-spacing: 2px;
   cursor: pointer;
 }
 
-/* Removed empty @media (min-width:768px) */
+#section-2 .card-container {
+  width: 100%;
+  padding: 3rem 0;
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
+.card-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+  width: 280px; /* Cards look structured now */
+}
+
+.card-top {
+  width: 100%;
+  height: 35vh;
+  background-color: #C1EE91;
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-radius: 1rem;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.card-top img {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all ease 0.3s;
+  z-index: 1;
+}
+
+.card-top:hover img {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.card-top-text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.card-top-text button {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid #000;
+  background-color: #fff;
+  font-family: 'midnight', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.card-top-text span {
+  font-size: 1rem;
+  font-family: 'Reckless', sans-serif;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.card-btm-text {
+  background-color: #fff;
+  padding: 0.4rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  font-family: 'Reckless', sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid #000;
+  position: relative;
+  z-index: 2;
+}
+
+.card-btm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: 'Reckless', sans-serif;
+  text-align: left;
+}
+
+.card-btm h1 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  white-space: normal;
+}
+
+.card-btm h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-btm p {
+  font-size: 0.9rem;
+  font-family: 'Figtree', sans-serif;
+  opacity: 0.7;
+  white-space: normal;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.btm-btn {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #2A2857;
+  color: white;
+  font-family: 'Figtree', sans-serif;
+  border-radius: 1.2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+
+#section-3 {
+  width: 100%;
+  min-height: 50vh;
+  padding: 4rem 8rem;
+  background-color: #fffefb; 
+  text-align: start;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  line-height: 1.5;
+  border-bottom: 1px solid black;
+}
+
+.discover-btn {
+ padding: 0.3rem 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  background-color: #e25f13;
+  text-transform: uppercase;
+  font-family: 'midnight', sans-serif;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  border: 1px solid #000;
+  transform: rotate(-4deg);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.section-3-text h2 {
+  font-family: 'Reckless', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.search-box {
+  margin-top: 2rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+}
+
+.section-3-text input {
+  padding: 1rem 1.5rem;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 1rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-block__input-placeholder {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #E2F3FC;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-family: 'Figtree', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.vibe-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.vibe-container h6 {
+  font-family: 'Reckless', sans-serif;
+  font-size: 0.6rem;
+  color: #333;
+}
+
+.vibe-btn-container {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.vibe-btn {
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #000;
+  background-color: #E2F3FC;
+  font-family: 'Figtree', sans-serif;
+  font-size: 2rem;
+  color: #070707;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+#section-4 {
+  width: 100%;
+  height: 100%;
+  padding: 4rem 1rem;
+  background-image: url("https://www.twoleavestea.com/cdn/shop/files/adam-vradenburg-_gu7E90QChU-unsplash_1_1.webp?v=1771592855&width=2000");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+#section-4 .section-4-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.our-origins {
+  padding: 0.2rem;
+  font-size: clamp(2.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  background-color: #a9e4f0;
+  text-transform: uppercase;
+  font-family: 'midnight', sans-serif;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  border: 1px solid #000;
+  transform: rotate(-4deg);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.section-4-text h1 {
+  font-family: Reckless;
+  font-size: clamp(8rem, 4vw, 12rem);
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: midnight;
+}
+
+.section-4-text p {
+  font-family: 'Figtree', sans-serif;
+  font-size: clamp(2.7rem, 2vw, 4rem);
+  font-weight: 300;
+  color: #ffffff;
+  width: 80%;
+  padding:  3rem;
+}
+.img-section {
+  width: 100%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  padding: 2rem;
+}
+
+.img-section .img-1 {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 0.5rem;
+}
+.img-section .img-2 {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 0.5rem;
+}
+.img-section .img-3 {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 0.5rem;
+}
+.img-section h6{
+  font-family: Figtree;
+  font-size: 10px;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.our-story {
+  padding: 0.3rem 1.5rem;
+  font-size: clamp(0.5rem, 3vw, 2rem);
+  background-color: #ffffff;
+  text-transform: capitalize;
+  border-radius: 2rem;
+  font-family: Reckless;
+  margin-top: 3rem;
+  border: 1px solid #000;
+  letter-spacing: 2px;
+}
+
+#section-6 {
+  width: 100%;
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+.sec-6 {
+  display: flex;
+  align-items: center;
+  background-color: #2a2857;
+  color: #ffffff;
+  justify-content: space-between;
+  max-width: 1400px;
+  gap: 1rem;
+}
+
+.section-img {
+  flex: 1;
+}
+
+.section-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.section-6-text {
+  flex: 1;
+}
+
+.section-6-text h1 {
+  font-size: clamp(5rem, 5vw, 7rem);
+  font-family: 'Reckless', sans-serif;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 2rem;
+}
+
+.section-6-text p {
+  font-size: clamp(1rem, 2vw, 1.5rem);  
+  font-family: 'Figtree', sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 25px;
+  padding: 0 2rem;
+}
+
+.learn-btn {
+  padding: 0.3rem 1.5rem;
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  border-radius: 2rem;
+  font-family: 'Figtree', sans-serif; 
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.learn:hover {
+  background-color: #333;
+}
+
+#section-7 {
+  width: 100%;
+  background-color: #4a6808;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#section-7 .sec-7-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sec-7-text button {
+  padding: 0.3rem 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  background-color: #c0e571;
+  text-transform: uppercase;
+  font-family: 'midnight', sans-serif;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  border: 1px solid #000;
+  transform: rotate(-4deg);
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec-7-text h2 {
+  font-size: clamp(4rem, 4vw, 6rem);
+  font-family: 'midnight', sans-serif;
+  color: #fffefb;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.sec-7-text span {
+  font-family: 'Figtree', sans-serif;
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-weight: 100;
+  color: #fffefb;
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.section-7-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 1300px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #000;
+  border-radius: 1rem;
+  background-color: #c0e571;
+  color: #070707;
+  font-family: 'Figtree', sans-serif;
+}
+
+.section-7-content .img-wrapper {
+  flex: 1;
+  width: 100%;
+}
+
+.section-7-content img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.text-sec7 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.text-sec7 .nice-btn {
+  padding: 0.3rem 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  width: fit-content;
+  background-color: #83b90e;
+  text-transform: uppercase;
+  font-family: 'midnight', sans-serif;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  border: 1px solid #000;
+  transform: rotate(-4deg);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.text-sec7 h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-family: 'reckless', sans-serif;
+  color: #070707;
+  font-weight: 100;
+}
+
+.text-sec7 p {
+  font-family: 'Figtree', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  color: #070707;
+}
+
+.text-sec7 .shop-btn {
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  background-color: #f8f9f6;
+  font-family: 'Figtree', sans-serif;
+  border-radius: 1.2rem;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+#section-7 .img-wrapper {
+  display: none;
+}
+
+#section-8{
+  width: 100%;
+  height: 100%;
+  background-color: #fbf9eb;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.sec-8-text{
+  padding: 4rem 1rem;
+  width: 100%;
+  align-items: start;
+}
+.sec-8-text .journal{
+  padding: 0.3rem 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  background-color: #e25f13;
+  text-transform: uppercase;
+  font-family: 'midnight', sans-serif;
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  border: 1px solid #000;
+  transform: rotate(-4deg);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.sec-8-text p {
+  padding: 2rem 3rem;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-family: 'Reckless', sans-serif;
+  color: #070707;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.section-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 1300px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pic-card{
+  width: 400px;
+  height: 400px;
+  background-color: #2a2857;
+  border: 1px solid #030303;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.pic-card .pic-btn{
+  font-size: 11px;
+  padding: 0.3rem 1.5rem;
+  width: 80px;
+  font-weight: 100;
+  background-color: #fff;
+  text-transform: uppercase;
+  color: #000;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+.pic-card img {
+   width: 300px;
+   height: 300px;
+   margin-top: 1rem;
+  display: flex;
+}
+
+.pic-card h5{
+  font-family: 'figtree', sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.explore-btn {
+  padding: 0.3rem 1.5rem;
+  font-size: clamp(0.5rem, 3vw, 2rem);
+  background-color: #2a2857;
+  text-transform: capitalize;
+  border-radius: 2rem;
+  font-family: Reckless;
+  margin-top: 3rem;
+  border: 1px solid #000;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#section-9 {
+  width: 100%;
+  min-height: 100vh; 
+  background-image: url("https://www.twoleavestea.com/cdn/shop/files/1440.webp?v=1771593223&width=1440");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 4rem 2rem;
+  border-bottom: 1px solid black;
+
+}
+
+.sec-9-text{
+  padding: 2rem;
+  height: 500px;
+  width: 400px;
+  background-color: #f26412;
+  color: #fff;
+  border-radius: 1rem;
+  border: 1px solid #000;
+}
+
+.sec-9-text h1 {
+  font-size: clamp(1rem, 5vw, 4.5rem); 
+  color: #fff; 
+  font-family: figtree;;
+  margin-bottom: 150px;
+}
+
+.shop-now {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #fff; 
+  color: #000;
+  border: none;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.shop-now:hover {
+  transform: scale(1.05); 
+}
+
+
+#section-10{
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.twoleavestea.com/cdn/shop/files/footer-extended_1.png?v=1771834074");
+  background-size: cover;
+  background-position: center;
+  color:#000;
+  padding: 4rem 1rem;
+}
+
+#section-10 .sec-10-text h1{
+  font-size: clamp(1rem, 5vw, 4.5rem); 
+  color: #000; 
+  font-family: figtree;;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.sec-10-text p{
+  font-size: 1rem;;
+  font-family: 'Figtree', sans-serif;
+  color: #000;
+}
+ .input-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+ }
+
+ .input-container .text-area{
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+}
+
+.input-container .submit-btn{
+  margin-top: 1rem;
+  width: 200px;
+  height: 70px;
+  padding: 0.3rem 1.5rem;
+  font-size: 16px;
+  font-weight: 100;
+  background-color: #2a2857;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: figtree;
+  border-radius: 2rem;
+  border: 1px solid #fff;
+  letter-spacing: 2px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+.icon{
+  height: 40px;
+  width: 40px;
+  color: #000;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  border: 1px solid #000;
+  padding: 0.3rem;
+  border-radius: 50%;
+  justify-content: end;
+}
+
+
+
+/* MEDIA QUERIES FOR DESKTOP */
 @media (min-width: 1024px) {
   nav {
-    padding: 0.5rem 1rem;
-    border-radius: 0; /* Optional: Usually navs lose borders on full desktop */
+    padding: 0.5rem 2rem;
+    border-radius: 0;
   }
 
   .nav-part-1 {
     display: flex;
-    width: 30%;
+    width: 33%;
   }
 
   nav i {
@@ -133,23 +937,45 @@ nav .nav-part-2 {
   }
   
   nav .nav-part-2 {
-    width: 5vw; /* Scaled back down for desktop */
+    width: 8vw; 
     justify-content: center;
   }
 
   .nav-part-3 {
     display: flex;
-    width: 30%;
+    width: 33%;
   }
 
   .nav-part-3 h3 {
     font-weight: 300;
-    font-size: 1.2rem;
-    display: block;
+    font-size: 1rem;
     white-space: nowrap;
   }
 
+  #section-1 {
+    text-align: left;
+    padding: 5rem;
+  }
+
   #section-1 h1 {
-    max-width: 40vw; /* Adjust max-width for desktop so it breaks nicely */
+    width: 40%;
+  }
+
+  #section-1 p {
+    width: 35%;
+  }
+
+  #section-1 button {
+    align-self: flex-start;
+  }
+
+  .section-2-text h1 {
+    width: 50%;
+  }
+
+  #section-2 .card-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
   }
 }
